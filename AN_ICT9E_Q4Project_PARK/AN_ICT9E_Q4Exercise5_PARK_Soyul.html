@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Itim&family=Roboto+Slab&family=Ysabeau:ital,wght@0,300;1,600&display=swap" rel="stylesheet">
+	<style type="text/css">
+		img{
+			width: 200px;
+		}
+	</style>
+	<title>Q4 Exercise 5</title>
+	<style>
+		h1 {
+			font-family: 'Indie Flower', cursive;
+			font-family: 'Itim', cursive;
+			font-family: 'Roboto Slab', serif;
+			font-family: 'Ysabeau', sans-serif;
+			font-size: 36px;
+  			color: #333333;
+  			text-align: center;
+		}
+		body {
+  			background-color: #f8f9fa;
+		}
+		p {
+  			font-size: 18px;
+  			color: #666666;
+		}
+		.btn-success {
+ 		 	background-color: #4CAF50;
+ 		 	color: white;
+  			border: none;
+  			padding: 10px 20px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 16px;
+  			transition-duration: 0.4s;
+  			cursor: pointer;
+  			border-radius: 4px;
+		}
+		.btn-success:hover {
+ 		 background-color: #45a049;
+		}
+		.section-heading {
+			font-family: 'Indie Flower', cursive;
+			font-family: 'Itim', cursive;
+			font-family: 'Roboto Slab', serif;
+			font-family: 'Ysabeau', sans-serif;
+			font-size: 36px;
+			color: black;
+			text-align: center;
+			margin-top: 30px;
+		}
+	.section-description {
+			font-size: 20px;
+			color: black;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+	.circuit-image {
+			width: 100%;
+		}
+	.calculation-description {
+			font-size: 18px;
+			color: #black;
+			margin-top: 10px;
+		}
+	.calculation-formula {
+			font-size: 16px;
+			color: black;
+			margin-bottom: 20px;
+		}
+
+	.input-section {
+			margin-top: 30px;
+		}
+	label {
+			display: block;
+			font-size: 16px;
+			color: #333333;
+			margin-bottom: 5px;
+		}
+
+	.input-field {
+			width: 100%;
+			padding: 5px;
+			font-size: 14px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			margin-bottom: 10px;
+		}
+
+	.btn-compute {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+			border-radius: 4px;
+		}
+	.btn-compute:hover {
+			background-color: #45a049;
+		}
+	.output-text {
+			font-size: 18px;
+			color: #333333;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+<div class="container mt-3">
+	<h1>What makes a light bulb light up?</h1>
+	<p>Light bulbs consist of only a few basic parts. The metal base has two metal contacts that connect to the ends of an electrical circuit. The metal contacts attach to two stiff wires, which themselves are connected by a thin metal filament. The filament is the thin wire you see in the middle of the light bulb, held up by a glass mount. All of this exists within a glass bulb filled with an inert gas, such as argon.</p>
+
+	<audio id="audio" src="turnonlights.mp3"></audio>
+	<button class="btn btn-success" onmouseover="SwitchOn()" onmouseout="SwitchOff()">SWITCH ON and OFF LIGHTS</button>
+
+	<img src="switchOFF.png" id="bulb"><br>
+	<p>Source: <a href="https://www.wonderopolis.org/wonder/what-makes-a-light-bulb-light-up">https://what-makes-up-a-light-bulb</a></p>
+	<h1 class="section-heading">Voltage, Current, and Resistance</h1>
+<p class="section-description">An electric circuit is formed when a conductive path is created to allow electric charge to continuously move. This continuous movement of electric charge through the conductors of a circuit is called a current, and it is often referred to in terms of “flow,” just like the flow of a liquid through a hollow pipe.</p>
+
+<div class="row">
+	<div class="col-md-6">
+		<img src="fig1.png" id="fig1" class="circuit-image">
+	</div>
+		<div class="col-6">
+		<img src="fig2.png" id="fig2" class="circuit-image">
+	</div>
+</div>
+	<div class="col-md-6">
+		<p class="calculation-description">Calculate the amount of current (I) in a circuit, given values of voltage (E) and resistance (R)</p>
+		<p class="calculation-formula"><kbd>Voltage/Resistance = Current</kbd></p>
+		<div class="input-section">
+			<label for="V">Enter Voltage(V):</label>
+			<input type="text" id="V" class="input-field"><br>
+			<label for="R">Enter Resistance(R):</label>
+			<input type="text" id="R" class="input-field"><br>
+			<input type="submit" value="COMPUTE" class="btn-compute" onclick="Compute()"><br>
+			<p id="Output" class="output-text"></p>
+		</div>
+	</div>
+<h2>To learn more information about electricity:</h2>
+<iframe src="https://www.eia.gov/energyexplained/electricity/" name="iframe_a" height="600px" width="70%" title="Iframe Example"></iframe>
+</div>
+
+
+<script type="text/javascript">
+	function SwitchOn() {
+		document.getElementById('bulb').src = "switchON.png";
+		document.getElementById('audio').play();
+	}
+	function SwitchOff() {
+		document.getElementById('bulb').src = "switchOFF.png";
+		document.getElementById('audio').pause();
+	}
+	function Compute(){
+		let Voltage = document.getElementById('V').value
+		let Resistance = document.getElementById('R').value
+		let Current = Voltage/Resistance;
+		document.getElementById('Output').innerHTML = "The current(I) is: " + Current;
+	}
+	alert("This is all about the electricity")
+</script>
+</body>
+</html>
+
